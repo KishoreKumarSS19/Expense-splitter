@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Management | Expensy</title>
+    <link rel="stylesheet" href="members.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="nav-content">
+        <div class="brand">
+            <span class="brand-name">💰 Smart Expense Splitter</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#">🏠 Home</a></li>
+            <li><a href="#" class="active">👥 Members</a></li>
+            <li><a href="#">➕ Add Expense</a></li>
+            <li><a href="#">🧮 Split Calculator</a></li>
+            <li><a href="#">📊 Balances</a></li>
+            <li><a href="#">📜 History</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <div class="container">
+        <main class="page">
+            <header class="header">
+                <h1 class="page-title">👥 Manage Group Members</h1>
+                <br>
+                <p class="subtitle">Organize your group and prepare for splitting expenses.</p>
+            </header>
+
+            <div class="card">
+                <h3 class="card-label">Add New Members</h3>
+                <div class="add-row">
+                    <input type="text" id="memberInput" placeholder="Enter full name">
+                    <button id="addBtn">Add Member</button>
+                </div>
+            </div>
+
+           <div class="card">
+    <h3 class="card-label">Active Squad</h3>
+    <div id="membersContainer" class="members-grid"></div>
+</div>
+        </main>
+    </div>
+
+
+    <script src="members.js"></script>
+</body>
+
+</html>
