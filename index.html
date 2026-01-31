@@ -2,56 +2,111 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group Management | Expensy</title>
-    <link rel="stylesheet" href="members.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members | Smart Expense Splitter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
 
-<body>
 
-  <nav class="navbar">
-    <div class="nav-content">
-        <div class="brand">
-            <span class="brand-name">💰 Smart Expense Splitter</span>
+<body class="min-h-screen bg-[#f5f3ee] text-[#2f3e2e] font-sans">
+
+    <!-- NAVBAR -->
+    <nav class="bg-[#f5f3ee] border-b border-[#d6d2c4]">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+
+            <div class="flex flex-col gap-4">
+
+                <!-- Header -->
+                <div class="flex items-center justify-between">
+                    <h1 class="text-2xl font-extrabold text-[#556b2f] flex items-center gap-2">
+                        💰 Smart Expense Splitter
+                    </h1>
+                    <span class="text-sm text-[#6b705c]">Group</span>
+                </div>
+
+                <!-- Menu -->
+                <div class="flex flex-wrap gap-2">
+                    <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#2f3e2e] hover:bg-[#dcd6c6] transition">
+                        🏠 Home
+                    </button>
+                    <!-- Active -->
+                    <button class="px-4 py-2 rounded-lg bg-[#6b8e23] text-white font-semibold">
+                        👥 Members
+                    </button>
+                    <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#2f3e2e] hover:bg-[#dcd6c6] transition">
+                        ➕ Add Expense
+                    </button>
+                    <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#2f3e2e] hover:bg-[#dcd6c6] transition">
+                        🧮 Split Calculator
+                    </button>
+                    <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#2f3e2e] hover:bg-[#dcd6c6] transition">
+                        💳 Balances
+                    </button>
+                    <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#2f3e2e] hover:bg-[#dcd6c6] transition">
+                        📊 History
+                    </button>
+                </div>
+
+            </div>
         </div>
+    </nav>
+    <main
+        class="max-w-4xl mx-auto px-6 py-10 bg-white rounded-[1rem] shadow-xl shadow-[#d6d2c4]/40 border border-[#d6d2c4]/30 p-8 md:p-12">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-[#eef2e0] flex items-center justify-center text-[#6b8e23] text-2xl">
+                👥
+            </div>
+            <div>
+                <h2 class="text-3xl font-extrabold text-[#2f3e2e]">
+                    Manage Group Members
+                </h2>
+                <p class="text-[#6b705c] mt-1">
+                    Organize your group and prepare for splitting expenses.
+                </p>
+            </div>
+        </div>
+<br>
+        <div>
 
-        <ul class="nav-links">
-            <li><a href="#">🏠 Home</a></li>
-            <li><a href="#" class="active">👥 Members</a></li>
-            <li><a href="#">➕ Add Expense</a></li>
-            <li><a href="#">🧮 Split Calculator</a></li>
-            <li><a href="#">📊 Balances</a></li>
-            <li><a href="#">📜 History</a></li>
-        </ul>
-    </div>
-</nav>
-
-    <div class="container">
-        <main class="page">
-            <header class="header">
-                <h1 class="page-title">👥 Manage Group Members</h1>
-                <br>
-                <p class="subtitle">Organize your group and prepare for splitting expenses.</p>
-            </header>
-
-            <div class="card">
-                <h3 class="card-label">Add New Members</h3>
-                <div class="add-row">
-                    <input type="text" id="memberInput" placeholder="Enter full name">
-                    <button id="addBtn">Add Member</button>
+            <div class="mb-12">
+                <h3 class="text-xs font-bold uppercase tracking-[0.15em] text-[#6b705c] mb-6">Add New Members</h3>
+                <div class="flex flex-col sm:flex-row gap-3 bg-[#f5f3ee] p-2 rounded-2xl">
+                    <input type="text" id="memberInput" placeholder="Enter full name"
+                        class="flex-1 px-6 py-3 rounded-xl bg-transparent border-none focus:outline-none text-lg text-[#2f3e2e] placeholder-[#a3a391]">
+                    <button id="addBtn"
+                        class="px-8 py-3 rounded-xl bg-[#6b8e23] text-white font-bold hover:bg-[#556b2f] transition-all shadow-md active:scale-95">
+                        Add Member
+                    </button>
                 </div>
             </div>
 
-           <div class="card">
-    <h3 class="card-label">Active Squad</h3>
-    <div id="membersContainer" class="members-grid"></div>
-</div>
-        </main>
-    </div>
+            <div>
+                <div class="flex items-center justify-between mb-8 border-b border-[#f5f3ee] pb-4">
+                    <h3 class="text-xs font-bold uppercase tracking-[0.15em] text-[#6b705c]">Active Squad</h3>
+                    <span id="memberCount"
+                        class="text-xs font-bold text-[#6b8e23] bg-[#6b8e23]/10 px-3 py-1 rounded-full">0 Members</span>
+                </div>
 
+                <div id="membersContainer" class="grid sm:grid-cols-2 gap-4">
+                </div>
 
+                <div id="emptyState" class="text-center py-12">
+                    <div class="mx-auto w-16 h-16 rounded-full bg-[#f5f3ee] flex items-center justify-center mb-4">
+                        <span class="text-2xl grayscale opacity-30">👥</span>
+                    </div>
+                    <p class="text-[#2f3e2e] font-semibold">No members in the squad</p>
+                    <p class="text-sm text-[#6b705c] mt-1">Add names above to start calculating balances.</p>
+                </div>
+            </div>
+        </div>
+    </main>
     <script src="members.js"></script>
 </body>
 
