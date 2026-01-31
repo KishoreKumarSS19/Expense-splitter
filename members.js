@@ -1,27 +1,49 @@
-// ✅ DOM manipulation
+// DOM manipulation
 const input = document.getElementById('memberInput');
 const btn = document.getElementById('addBtn');
 const container = document.getElementById('membersContainer');
 const countLabel = document.getElementById('memberCount');
 const empty = document.getElementById('emptyState');
 
-// ✅ Arrays & objects
+
 let members = JSON.parse(localStorage.getItem('m_list')) || [];
+
+// menu buton
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+
+
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+menuBtn.addEventListener('click', () => {
+
+    mobileMenu.classList.toggle('hidden');
+
+    //Change the button icon between ☰ and ✕
+    if (mobileMenu.classList.contains('hidden')) {
+        menuBtn.textContent = '☰';
+    } else {
+        menuBtn.textContent = '✕';
+    }
+});
+
+
 
 function update() {
     container.innerHTML = '';
 
-    // ✅ Conditional logic & Mathematical operations
+
     empty.style.display = members.length ? 'none' : 'block';
     container.classList.toggle('hidden', !members.length);
     countLabel.textContent = `${members.length} Member${members.length === 1 ? '' : 's'}`;
 
-    // ✅ Arrays & objects (Looping)
+
     members.forEach((m, i) => {
         const card = document.createElement('div');
         card.className = 'flex items-center justify-between p-5 rounded-2xl bg-white border border-[#f0eee6] shadow-sm';
 
-        // ✅ Mathematical operations (Initials)
+
         const ini = m.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
 
         card.innerHTML = `
@@ -37,25 +59,25 @@ function update() {
     </button>`;
         container.appendChild(card);
     });
-    // ✅ LocalStorage
+
     localStorage.setItem('m_list', JSON.stringify(members));
 }
 
-// ✅ Event listeners & Form validation
+
 btn.addEventListener('click', () => {
     const val = input.value.trim();
-    if (!val) return alert("Enter a name"); // ✅ Conditional check
+    if (!val) return alert("Enter a name");
 
     members.push({ name: val, id: Date.now() });
     input.value = '';
     update();
 });
 
-// ✅ Array removal
+
 window.remove = (i) => {
     members.splice(i, 1);
     update();
 };
 
-// Initial run
+
 update();

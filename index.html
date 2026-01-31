@@ -18,43 +18,83 @@
 <body class="min-h-screen bg-[#f5f3ee] text-[#2f3e2e] font-sans">
 
     <!-- NAVBAR -->
-    <nav class="bg-[#f5f3ee] border-b border-[#d6d2c4]">
-        <div class="max-w-7xl mx-auto px-4 py-4">
+    <nav class="bg-[#f5f3ee] border-b border-[#d6d2c4] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
 
-            <div class="flex flex-col gap-4">
+            <!-- Top Row -->
+            <div class="flex items-center justify-between gap-3">
+                <h1 class="text-lg sm:text-2xl font-extrabold text-[#556b2f] flex items-center gap-2 leading-tight">
+                    Smart Expense Splitter
+                </h1>
 
-                <!-- Header -->
-                <div class="flex items-center justify-between">
-                    <h1 class="text-2xl font-extrabold text-[#556b2f] flex items-center gap-2">
-                        💰 Smart Expense Splitter
-                    </h1>
-                    <span class="text-sm text-[#6b705c]">Group</span>
-                </div>
+                <div class="flex items-center gap-3">
+                    <span class="hidden sm:inline text-sm text-[#6b705c]">Group</span>
 
-                <!-- Menu -->
-                <div class="flex flex-wrap gap-2">
-                    <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#2f3e2e] hover:bg-[#dcd6c6] transition">
-                        🏠 Home
-                    </button>
-                    <!-- Active -->
-                    <button class="px-4 py-2 rounded-lg bg-[#6b8e23] text-white font-semibold">
-                        👥 Members
-                    </button>
-                    <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#2f3e2e] hover:bg-[#dcd6c6] transition">
-                        ➕ Add Expense
-                    </button>
-                    <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#2f3e2e] hover:bg-[#dcd6c6] transition">
-                        🧮 Split Calculator
-                    </button>
-                    <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#2f3e2e] hover:bg-[#dcd6c6] transition">
-                        💳 Balances
-                    </button>
-                    <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#2f3e2e] hover:bg-[#dcd6c6] transition">
-                        📊 History
+                    <!-- Mobile Menu Button -->
+                    <button id="menuBtn"
+                        class="sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition"
+                        aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                        ☰
                     </button>
                 </div>
-
             </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden sm:flex flex-wrap gap-2 mt-4">
+                <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Home
+                </button>
+                <!-- Active -->
+                <button class="px-4 py-2 rounded-lg bg-[#6b8e23] text-white font-semibold text-sm">
+                    Members
+                </button>
+                <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Add Expense
+                </button>
+                <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Split Calculator
+                </button>
+                <button class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                    Balances
+                </button>
+                <button
+                    class="px-4 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm"></button>
+                History
+                </button>
+            </div>
+
+            <!-- Mobile Navigation (Toggle) -->
+            <div id="mobileMenu" class="sm:hidden hidden mt-4">
+                <div class="grid grid-cols-2 gap-2">
+                    <button
+                        class="px-3 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                        Home
+                    </button>
+                    
+                    <!-- Active -->
+                    <button class="px-3 py-2 rounded-lg bg-[#6b8e23] text-white font-semibold text-sm col-span-1">
+                        Members
+                    </button>
+                    <button
+                        class="px-3 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                        Add Expense
+                    </button>
+                    <button
+                        class="px-3 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                        Split Calculator
+                    </button>
+                    <button
+                        class="px-3 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                        Balances
+                    </button>
+
+                    <button
+                        class="px-3 py-2 rounded-lg bg-[#e6e2d8] text-[#4a5d23] hover:bg-[#dcd6c6] transition text-sm">
+                        History
+                    </button>
+                </div>
+            </div>
+
         </div>
     </nav>
     <main
@@ -72,7 +112,7 @@
                 </p>
             </div>
         </div>
-<br>
+        <br>
         <div>
 
             <div class="mb-12">
